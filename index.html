@@ -43,8 +43,6 @@
   <script src="js/jquery-3.2.1.min.js" type="3bc5e4e5245e387f3290c38f-text/javascript"></script>
   <script src="js/lunaradio.min.js" type="3bc5e4e5245e387f3290c38f-text/javascript"></script>
 
-  <!-- Configuración de la radio -->
-  <div id="lunaradio" style="width:100%; height:550px;"></div>
 
   <!-- Script para configurar la radio (esto incluye los colores, fuentes, URL de la transmisión, etc.) -->
   <script type="3bc5e4e5245e387f3290c38f-text/javascript">
@@ -112,5 +110,55 @@
 
   <!-- Script de Cloudflare para optimizar el sitio -->
   <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="3bc5e4e5245e387f3290c38f-|49" defer=""></script>
+
+<!-- Social Media flotante -->
+<style>
+#social-media {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #222;
+  padding: 10px 14px;
+  border-radius: 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
+  text-align: center;
+}
+#social-media h3 {
+  display: none;
+}
+#social-media a {
+  display: inline-block;
+  margin: 0 6px;
+}
+#social-media img {
+  filter: invert(1);
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+#social-media a:hover img {
+  transform: scale(1.2);
+}
+</style>
+<section id="social-media">
+  <a href="https://facebook.com/tu_pagina" target="_blank">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg" alt="Facebook">
+  </a>
+  <a href="https://twitter.com/tu_usuario" target="_blank">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/twitter.svg" alt="Twitter">
+  </a>
+  <a href="https://instagram.com/adcm.club" target="_blank">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram">
+  </a>
+  <a href="https://youtube.com/tu_canal" target="_blank">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/youtube.svg" alt="YouTube">
+  </a>
+</section>
+
+<!-- Social Media flotante Fin -->
+
+
 
 </body>
