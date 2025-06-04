@@ -1,164 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <!-- Codificación de caracteres -->
-  <meta charset="UTF-8">
-  
-  <!-- Título de la página, puedes cambiar "RADIO DC MIX EC" por otro nombre si lo prefieres -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RADIO DC MIX EC</title>
-  
-  <!-- Favicon (el icono que aparece en la pestaña del navegador) -->
-  <!-- Cambia la ruta de la imagen en href="img/DAR1.png" si deseas usar otro icono -->
-  <link rel="icon" type="imagen/png" href="img/DAR1.png" />
-  
-  <!-- Importar jQuery (esta librería de JavaScript es útil para simplificar el manejo de eventos y efectos en tu página) -->
+  <link rel="icon" type="image/png" href="img/DAR1.png" />
+
+  <!-- Meta PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#09191a" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="RADIO DC MIX EC" />
+  <link rel="apple-touch-icon" href="img/DAR1.png" />
+
+  <!-- Estilos generales y adaptativos -->
+  <style>
+    html, body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Saira Condensed', sans-serif;
+      overflow: hidden;
+    }
+
+    #lunaradio {
+      width: 100vw;
+      height: 100vh;
+      background: url("img/FONDO.jpg") no-repeat center center;
+      background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+      #lunaradio {
+        transform: none; /* Eliminamos escala para evitar bordes */
+      }
+    }
+
+    #social-media {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #222;
+      padding: 0.6rem 1rem;
+      border-radius: 2rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    #social-media img {
+      filter: invert(1);
+      width: 2.2rem;
+      height: 2.2rem;
+      transition: transform 0.2s;
+    }
+
+    #social-media a:hover img {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 600px) {
+      #social-media img {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  </style>
+
+  <!-- jQuery y Lunaradio -->
   <script src="js/jquery-3.2.1.min.js"></script>
-  
-  <!-- Script de la radio lunar (probablemente es la funcionalidad que controla la radio en el sitio) -->
-  <script src="js/lunaradio.js"></script>
+  <script src="js/lunaradio.min.js"></script>
 </head>
+<body>
 
-<body style="margin:0px">
-
-  <!-- Contenedor principal de la radio -->
-  <!-- Puedes modificar el fondo cambiando "img/FONDO.jpg" a otro archivo de imagen -->
-  <div id="lunaradio" style='width:100%; height:100%; background-image: url("img/FONDO.jpg"); background-repeat: no-repeat; background-size: cover; background-position: center;
-  -webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 0px;
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -moz-border-radius-bottomleft: 0px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border: none;'>
-    
-    <!-- Texto con enlace (puedes modificar el texto y los enlaces a "RADIO PRO" y "SEOMARCA") -->
-    <div a href="RADIO PRO" title="RADIO PRO"></a> Desarrollado por: RADIO DJ LOBO AZUL <a href="CHAN" title="SEOMARCA"></a></div>
+  <div id="lunaradio">
+    <div style="text-align:center; color:white; padding-top:1rem; font-size: 1rem;">
+      Desarrollado por: RADIO DJ LOBO AZUL
+    </div>
   </div>
 
-  <!-- Scripts adicionales de jQuery y la radio -->
-  <script src="js/jquery-3.2.1.min.js" type="3bc5e4e5245e387f3290c38f-text/javascript"></script>
-  <script src="js/lunaradio.min.js" type="3bc5e4e5245e387f3290c38f-text/javascript"></script>
+  <!-- Íconos sociales -->
+  <div id="social-media">
+    <a href="https://facebook.com/tu_pagina" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg" alt="Facebook" />
+    </a>
+    <a href="https://twitter.com/tu_usuario" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/twitter.svg" alt="Twitter" />
+    </a>
+    <a href="https://instagram.com/adcm.club" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram" />
+    </a>
+    <a href="https://youtube.com/tu_canal" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/youtube.svg" alt="YouTube" />
+    </a>
+  </div>
 
+  <!-- Configuración Lunaradio -->
+  <script>
+    const isMobile = window.innerWidth < 768;
 
-  <!-- Script para configurar la radio (esto incluye los colores, fuentes, URL de la transmisión, etc.) -->
-  <script type="3bc5e4e5245e387f3290c38f-text/javascript">
     $("#lunaradio").lunaradio({
-      
-		
-      // Configuración de la interfaz de usuario (puedes cambiar la apariencia de la interfaz)
-	  userinterface: "big", // Tamaño de la interfaz
-      backgroundcolor: "rgba(9,15,25,0.8)", // Color de fondo de la interfaz
-      fontcolor: "#ffffff", // Color de la fuente
-      hightlightcolor: "#80ff00", // Color para resaltar elementos
-      fontname: "Saira Condensed", // Nombre de la fuente
-      googlefont: "Saira+Condensed:wght@100", // Fuente de Google (puedes cambiarla)
-      fontratio: "0.3", // Relación de tamaño de la fuente
-      
-
-
-      // Información de la radio
-      radioname: "DC MIX Ec", // Nombre de la estación (puedes cambiarlo)
-      
-
-
-      // Configuración de la visualización
-      scroll: "true", // Si quieres habilitar el desplazamiento en la interfaz
-      coverimage: "img/DAR1.png", // Imagen que aparece como portada (cámbiala si lo deseas)
-      usevisualizer: "Fake", // Tipo de visualización (puedes cambiarla)
-      coverstyle: "animated", // Estilo de la portada
-      visualizertype: "6", // Tipo de visualizador (puedes cambiarlo)
-      multicolorvisualizer: "true", // Si usas un visualizador multicolor
-
-
-
-      // Colores personalizados (puedes cambiar los colores aquí)
+      userinterface: "big",
+      backgroundcolor: "rgba(9,15,25,0.8)",
+      fontcolor: "#ffffff",
+      hightlightcolor: "#80ff00",
+      fontname: "Saira Condensed",
+      googlefont: "Saira+Condensed:wght@100",
+      fontratio: isMobile ? "0.5" : "0.3",
+      radioname: "DC MIX Ec",
+      scroll: "true",
+      coverimage: "img/DAR1.png",
+      usevisualizer: "Fake",
+      coverstyle: "animated",
+      visualizertype: "6",
+      multicolorvisualizer: "true",
       color1: "f6f6f6",
       color2: "323edd",
       color3: "fc5404",
       color4: "#80ff00",
-
-
-
-      // Información de la transmisión
-      itunestoken: "1000lIPN", // Token de iTunes (si lo usas)
-      metadatatechnic: "corsproxy", // Técnica para obtener metadatos
-      ownmetadataurl: "", // URL personalizada para metadatos
-      streamurl: "https://node-20.zeno.fm/fxp4altkru2vv.acc", // URL de transmisión en vivo (puedes cambiarla a la tuya)
-      streamtype: "radiozeno", // Tipo de transmisión
-      icecastmountpoint: "/radio.mp3", // Punto de montaje (si usas Icecast)
-      radionomyid: "", // ID de Radionomy
-      radionomyapikey: "", // API Key de Radionomy
-      radiozenoid: "fxp4altkru2vv", // ID de la radio en Zeno
-      shoutcastpath: "/stream", // Path para Shoutcast
-      shoutcastid: "1", // ID para Shoutcast
-      metadatainterval: "20000", // Intervalo para actualizar metadatos
-      
-
-
-      // Control de volumen y otros ajustes
-      volume: "85", // Volumen inicial
-      debug: "false", // Modo de depuración
-      usestreamcorsproxy: "false", // Si se usa un proxy CORS
-      corsproxy: "https://corsradio.herokuapp.com/index.php?q=", // URL del proxy CORS
-      autoplay:"true", // Hacer que la radio se inicie automáticamente
+      itunestoken: "1000lIPN",
+      metadatatechnic: "corsproxy",
+      ownmetadataurl: "",
+      streamurl: "https://node-20.zeno.fm/fxp4altkru2vv.acc",
+      streamtype: "radiozeno",
+      radiozenoid: "fxp4altkru2vv",
+      shoutcastpath: "/stream",
+      shoutcastid: "1",
+      metadatainterval: "20000",
+      volume: "85",
+      debug: "false",
+      usestreamcorsproxy: "false",
+      corsproxy: "https://corsradio.herokuapp.com/index.php?q=",
+      autoplay: "true"
     });
   </script>
 
-  <!-- Script de Cloudflare para optimizar el sitio -->
-  <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="3bc5e4e5245e387f3290c38f-|49" defer=""></script>
-
-<!-- Social Media flotante -->
-<style>
-#social-media {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #222;
-  padding: 10px 14px;
-  border-radius: 30px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-  z-index: 9999;
-  text-align: center;
-}
-#social-media h3 {
-  display: none;
-}
-#social-media a {
-  display: inline-block;
-  margin: 0 6px;
-}
-#social-media img {
-  filter: invert(1);
-  width: 32px;
-  height: 32px;
-  vertical-align: middle;
-  transition: transform 0.2s;
-}
-#social-media a:hover img {
-  transform: scale(1.2);
-}
-</style>
-<section id="social-media">
-  <a href="https://facebook.com/tu_pagina" target="_blank">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg" alt="Facebook">
-  </a>
-  <a href="https://twitter.com/tu_usuario" target="_blank">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/twitter.svg" alt="Twitter">
-  </a>
-  <a href="https://instagram.com/adcm.club" target="_blank">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram">
-  </a>
-  <a href="https://youtube.com/tu_canal" target="_blank">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/youtube.svg" alt="YouTube">
-  </a>
-</section>
-
-<!-- Social Media flotante Fin -->
-
-
+  <!-- Service Worker para PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Service Worker registrado'))
+        .catch(err => console.error('Error al registrar Service Worker:', err));
+    }
+  </script>
 
 </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "RADIO DC MIX EC",
+  "short_name": "DC MIX",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#09191a",
+  "theme_color": "#09191a",
+  "icons": [
+    {
+      "src": "img/DAR1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/DAR1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
