@@ -32,9 +32,22 @@
       background-size: cover;
     }
 
+    /* Ajustes para mobile */
     @media (max-width: 768px) {
       #lunaradio {
-        transform: none; /* Eliminamos escala para evitar bordes */
+        height: 100vh;
+        min-height: 100vh;
+        padding-bottom: 60px; /* espacio para controles flotantes si es necesario */
+      }
+      #social-media {
+        bottom: 0.5rem;
+        right: 0.5rem;
+        padding: 0.4rem 0.7rem;
+        border-radius: 1.2rem;
+      }
+      #social-media img {
+        width: 2rem;
+        height: 2rem;
       }
     }
 
@@ -61,13 +74,6 @@
 
     #social-media a:hover img {
       transform: scale(1.2);
-    }
-
-    @media (max-width: 600px) {
-      #social-media img {
-        width: 3rem;
-        height: 3rem;
-      }
     }
   </style>
 
@@ -110,7 +116,7 @@
       hightlightcolor: "#80ff00",
       fontname: "Saira Condensed",
       googlefont: "Saira+Condensed:wght@100",
-      fontratio: isMobile ? "0.5" : "0.3",
+      fontratio: isMobile ? "0.32" : "0.3", // más pequeño en mobile
       radioname: "DC MIX Ec",
       scroll: "true",
       coverimage: "img/DAR1.png",
@@ -135,7 +141,9 @@
       debug: "false",
       usestreamcorsproxy: "false",
       corsproxy: "https://corsradio.herokuapp.com/index.php?q=",
-      autoplay: "true"
+      autoplay: "true",
+      // Forzar mostrar el control de volumen en mobile
+      showvolume: "true"
     });
   </script>
 
