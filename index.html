@@ -156,5 +156,34 @@
     }
   </script>
 
+  <!-- Estilos para mobile -->
+  <style>
+    /* Ajustes para mobile */
+    @media (max-width: 768px) {
+      #lunaradio {
+        height: 100vh;
+        min-height: 100vh;
+        padding-bottom: 60px; /* espacio para controles flotantes si es necesario */
+      }
+      #social-media {
+        bottom: 0.5rem;
+        right: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 1.2rem;
+  }
+  #social-media img {
+    width: 6vw;   /* antes 2rem */
+    height: 6vw;  /* antes 2rem */
+    max-width: 30px;  /* limitar tamaño máximo */
+    max-height: 30px;
+  }
+}
+  </style>
+
+<!-- Control de volumen para móviles -->
+<div id="mobile-volume-control" style="display:none; position: fixed; bottom: 70px; right: 1rem; background: rgba(0,0,0,0.6); padding: 0.5rem 1rem; border-radius: 1rem; z-index: 10000;">
+  <input type="range" id="volume-range" min="0" max="100" step="1" value="85" />
+</div>
+
 </body>
 </html>
