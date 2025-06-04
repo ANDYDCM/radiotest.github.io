@@ -18,11 +18,13 @@
   <!-- Estilos generales y adaptativos -->
   <style>
     html, body {
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-      font-family: 'Saira Condensed', sans-serif;
-      overflow: hidden;
+  height: 100dvh; /* Usa altura real del viewport, mejor en móviles modernos */
+  margin: 0;
+  padding: 0;
+  font-family: 'Saira Condensed', sans-serif;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
     }
 
     #lunaradio {
