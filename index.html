@@ -175,22 +175,65 @@
         .catch(err => console.error('Error al registrar Service Worker:', err));
     }
   </script>
-  <!-- IOS Adaptar -->
+
+
 <script>
+  // Función para actualizar vh
   function updateVh() {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
 
+  // Animación para forzar "giro" y reescalado
+  function animateOrientationFix() {
+    const lunaradio = document.getElementById('lunaradio');
+    if (!lunaradio) return;
+
+    // Aplicamos clase que activa animación CSS
+    lunaradio.classList.add('rotate-animation');
+
+    // Después de la animación (600ms), quitamos clase y actualizamos vh
+    setTimeout(() => {
+      lunaradio.classList.remove('rotate-animation');
+      updateVh();
+    }, 600);
+  }
+
+  // Escuchar cambios de orientación y resize
+  window.addEventListener('orientationchange', () => {
+    animateOrientationFix();
+  });
+
+  window.addEventListener('resize', () => {
+    animateOrientationFix();
+  });
+
+  // También actualizar vh inicialmente y al hacer focus
   window.addEventListener('load', () => {
     updateVh();
-    setTimeout(updateVh, 500);
   });
-  window.addEventListener('resize', updateVh);
-  window.addEventListener('orientationchange', updateVh);
+  window.addEventListener('focus', () => {
+    updateVh();
+  });
 </script>
-<script src="js/viewport-fix.js"></script>
 
+<style>
+  /* Animación que rota el contenedor un poco y vuelve a posición normal */
+  @keyframes rotateInOut {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(15deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 
+  #lunaradio.rotate-animation {
+    animation: rotateInOut 0.6s ease-in-out;
+  }
+</style>
 </body>
 </html>
