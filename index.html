@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>RADIO DC MIX EC</title>
   <link rel="icon" type="image/png" href="img/DAR1.png" />
 
@@ -11,93 +11,92 @@
   <meta name="theme-color" content="#09191a" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="RADIO DC MIX EC" />
   <link rel="apple-touch-icon" href="img/DAR1.png" />
 
-  <!-- Estilos generales y adaptativos -->
-<style>
-  html, body {
-    height: 100dvh; /* Usa altura real del viewport */
-    margin: 0;
-    padding: 0;
-    font-family: 'Saira Condensed', sans-serif;
-    overflow: hidden;
-    overscroll-behavior: none;
-    touch-action: manipulation;
-    transform: scale(1);
-    transform-origin: top left;
-    box-sizing: border-box;
-    width: 100vw;
-  }
+  <style>
+    :root {
+      --vh: 1vh;
+    }
 
-  #lunaradio {
-    width: 100vw;
-    height: 100vh;
-    background: url("img/FONDO.jpg") no-repeat center center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-  }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: calc(var(--vh, 1vh) * 100);
+      overflow: hidden;
+      font-family: 'Saira Condensed', sans-serif;
+      touch-action: manipulation;
+      overscroll-behavior: none;
+      box-sizing: border-box;
+    }
 
-  /* Ajustes para mobile */
-  @media (max-width: 768px) {
     #lunaradio {
-      height: 100vh;
-      min-height: 100vh;
-      padding-bottom: 60px;
+      width: 100vw;
+      height: calc(var(--vh, 1vh) * 100);
+      background: url("img/FONDO.jpg") no-repeat center center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
     }
+
     #social-media {
-      bottom: 0.5rem;
-      right: 0.5rem;
-      padding: 0.4rem 0.7rem;
-      border-radius: 1.2rem;
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #222;
+      padding: 0.6rem 1rem;
+      border-radius: 2rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
+
     #social-media img {
-      width: 2rem;
-      height: 2rem;
+      filter: invert(1);
+      width: 2.2rem;
+      height: 2.2rem;
+      transition: transform 0.2s;
     }
-  }
 
-  #social-media {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    background: #222;
-    padding: 0.6rem 1rem;
-    border-radius: 2rem;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
+    #social-media a:hover img {
+      transform: scale(1.2);
+    }
 
-  #social-media img {
-    filter: invert(1);
-    width: 2.2rem;
-    height: 2.2rem;
-    transition: transform 0.2s;
-  }
+    @media (max-width: 768px) {
+      #social-media {
+        bottom: 0.5rem;
+        right: 0.5rem;
+        padding: 0.4rem 0.7rem;
+        border-radius: 1.2rem;
+      }
 
-  #social-media a:hover img {
-    transform: scale(1.2);
-  }
-</style>
-<script>
-  // Fix altura real para iOS Safari
-  function setRealViewportHeight() {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
+      #social-media img {
+        width: 6vw;
+        height: 6vw;
+        max-width: 30px;
+        max-height: 30px;
+      }
+    }
+  </style>
 
-  // Llamar al cargar y al cambiar tamaño/orientación
-  window.addEventListener('load', setRealViewportHeight);
-  window.addEventListener('resize', setRealViewportHeight);
-  window.addEventListener('orientationchange', setRealViewportHeight);
-</script>
+  <!-- Fix para altura real en iOS Safari -->
+  <script>
+    function updateVh() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    window.addEventListener('load', updateVh);
+    window.addEventListener('resize', updateVh);
+    window.addEventListener('orientationchange', updateVh);
+  </script>
+
   <!-- jQuery y Lunaradio -->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/lunaradio.min.js"></script>
@@ -110,7 +109,6 @@
     </div>
   </div>
 
-  <!-- Íconos sociales -->
   <div id="social-media">
     <a href="https://facebook.com/tu_pagina" target="_blank">
       <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg" alt="Facebook" />
@@ -126,7 +124,6 @@
     </a>
   </div>
 
-  <!-- Configuración Lunaradio -->
   <script>
     const isMobile = window.innerWidth < 768;
 
@@ -137,7 +134,7 @@
       hightlightcolor: "#80ff00",
       fontname: "Saira Condensed",
       googlefont: "Saira+Condensed:wght@100",
-      fontratio: isMobile ? "0.32" : "0.3", // más pequeño en mobile
+      fontratio: isMobile ? "0.32" : "0.3",
       radioname: "DC MIX Ec",
       scroll: "true",
       coverimage: "img/DAR1.png",
@@ -163,12 +160,11 @@
       usestreamcorsproxy: "false",
       corsproxy: "https://corsradio.herokuapp.com/index.php?q=",
       autoplay: "true",
-      // Forzar mostrar el control de volumen en mobile
       showvolume: "true"
     });
   </script>
 
-  <!-- Service Worker para PWA -->
+  <!-- Service Worker PWA -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -177,34 +173,10 @@
     }
   </script>
 
-  <!-- Estilos para mobile -->
-  <style>
-    /* Ajustes para mobile */
-    @media (max-width: 768px) {
-      #lunaradio {
-        height: 100vh;
-        min-height: 100vh;
-        padding-bottom: 60px; /* espacio para controles flotantes si es necesario */
-      }
-      #social-media {
-        bottom: 0.5rem;
-        right: 0.5rem;
-    padding: 0.4rem 0.7rem;
-    border-radius: 1.2rem;
-  }
-  #social-media img {
-    width: 6vw;   /* antes 2rem */
-    height: 6vw;  /* antes 2rem */
-    max-width: 30px;  /* limitar tamaño máximo */
-    max-height: 30px;
-  }
-}
-  </style>
-
-<!-- Control de volumen para móviles -->
-<div id="mobile-volume-control" style="display:none; position: fixed; bottom: 70px; right: 1rem; background: rgba(0,0,0,0.6); padding: 0.5rem 1rem; border-radius: 1rem; z-index: 10000;">
-  <input type="range" id="volume-range" min="0" max="100" step="1" value="85" />
-</div>
+  <!-- Control de volumen móvil -->
+  <div id="mobile-volume-control" style="display:none; position: fixed; bottom: 70px; right: 1rem; background: rgba(0,0,0,0.6); padding: 0.5rem 1rem; border-radius: 1rem; z-index: 10000;">
+    <input type="range" id="volume-range" min="0" max="100" step="1" value="85" />
+  </div>
 
 </body>
 </html>
