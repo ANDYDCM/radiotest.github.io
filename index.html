@@ -16,68 +16,77 @@
   <link rel="apple-touch-icon" href="img/DAR1.png" />
 
   <!-- Estilos generales y adaptativos -->
-  <style>
-    html, body {
-  height: 100dvh; /* Usa altura real del viewport, mejor en móviles modernos */
-  margin: 0;
-  padding: 0;
-  font-family: 'Saira Condensed', sans-serif;
-  overflow: hidden;
-  overscroll-behavior: none;
-  touch-action: manipulation;
-    }
+<style>
+  html, body {
+    height: 100dvh; /* Usa altura real del viewport */
+    margin: 0;
+    padding: 0;
+    font-family: 'Saira Condensed', sans-serif;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: manipulation;
+    transform: scale(1);
+    transform-origin: top left;
+    box-sizing: border-box;
+    width: 100vw;
+  }
 
+  #lunaradio {
+    width: 100vw;
+    height: 100vh;
+    background: url("img/FONDO.jpg") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  /* Ajustes para mobile */
+  @media (max-width: 768px) {
     #lunaradio {
-      width: 100vw;
       height: 100vh;
-      background: url("img/FONDO.jpg") no-repeat center center;
-      background-size: cover;
+      min-height: 100vh;
+      padding-bottom: 60px;
     }
-
-    /* Ajustes para mobile */
-    @media (max-width: 768px) {
-      #lunaradio {
-        height: 100vh;
-        min-height: 100vh;
-        padding-bottom: 60px; /* espacio para controles flotantes si es necesario */
-      }
-      #social-media {
-        bottom: 0.5rem;
-        right: 0.5rem;
-        padding: 0.4rem 0.7rem;
-        border-radius: 1.2rem;
-      }
-      #social-media img {
-        width: 2rem;
-        height: 2rem;
-      }
-    }
-
     #social-media {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      background: #222;
-      padding: 0.6rem 1rem;
-      border-radius: 2rem;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 1.2rem;
     }
-
     #social-media img {
-      filter: invert(1);
-      width: 2.2rem;
-      height: 2.2rem;
-      transition: transform 0.2s;
+      width: 2rem;
+      height: 2rem;
     }
+  }
 
-    #social-media a:hover img {
-      transform: scale(1.2);
-    }
-  </style>
+  #social-media {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: #222;
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  #social-media img {
+    filter: invert(1);
+    width: 2.2rem;
+    height: 2.2rem;
+    transition: transform 0.2s;
+  }
+
+  #social-media a:hover img {
+    transform: scale(1.2);
+  }
+</style>
+
 
   <!-- jQuery y Lunaradio -->
   <script src="js/jquery-3.2.1.min.js"></script>
