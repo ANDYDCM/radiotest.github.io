@@ -175,11 +175,22 @@
         .catch(err => console.error('Error al registrar Service Worker:', err));
     }
   </script>
+  <!-- IOS Adaptar -->
+<script>
+  function updateVh() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
 
-  <!-- Control de volumen móvil -->
-  <div id="mobile-volume-control" style="display:none; position: fixed; bottom: 70px; right: 1rem; background: rgba(0,0,0,0.6); padding: 0.5rem 1rem; border-radius: 1rem; z-index: 10000;">
-    <input type="range" id="volume-range" min="0" max="100" step="1" value="85" />
-  </div>
+  window.addEventListener('load', () => {
+    updateVh();
+    setTimeout(updateVh, 500);
+  });
+  window.addEventListener('resize', updateVh);
+  window.addEventListener('orientationchange', updateVh);
+</script>
+<script src="js/viewport-fix.js"></script>
+
 
 </body>
 </html>
