@@ -24,17 +24,18 @@
       margin: 0;
       padding: 0;
       width: 100vw;
-      height: calc(var(--vh, 1vh) * 100);
+      height: calc(var(--vh) * 100);
       overflow: hidden;
       font-family: 'Saira Condensed', sans-serif;
       touch-action: manipulation;
       overscroll-behavior: none;
       box-sizing: border-box;
+      background: #000; /* Fondo seguro */
     }
 
     #lunaradio {
       width: 100vw;
-      height: calc(var(--vh, 1vh) * 100);
+      height: calc(var(--vh) * 100);
       background: url("img/FONDO.jpg") no-repeat center center;
       background-size: cover;
       display: flex;
@@ -85,7 +86,7 @@
     }
   </style>
 
-  <!-- Fix para altura real en iOS Safari -->
+  <!-- Ajuste para altura real en iOS Safari -->
   <script>
     function updateVh() {
       const vh = window.innerHeight * 0.01;
@@ -95,6 +96,8 @@
     window.addEventListener('load', updateVh);
     window.addEventListener('resize', updateVh);
     window.addEventListener('orientationchange', updateVh);
+    window.addEventListener('focus', updateVh);
+    window.addEventListener('blur', updateVh);
   </script>
 
   <!-- jQuery y Lunaradio -->
