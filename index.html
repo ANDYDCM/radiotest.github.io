@@ -87,16 +87,16 @@
   }
 </style>
 <script>
-  // Fix altura real para iOS
-  function setLunaradioHeight() {
+  // Fix altura real para iOS Safari
+  function setRealViewportHeight() {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    document.getElementById('lunaradio').style.height = `${window.innerHeight}px`;
   }
 
-  window.addEventListener('resize', setLunaradioHeight);
-  window.addEventListener('orientationchange', setLunaradioHeight);
-  window.addEventListener('load', setLunaradioHeight);
+  // Llamar al cargar y al cambiar tamaño/orientación
+  window.addEventListener('load', setRealViewportHeight);
+  window.addEventListener('resize', setRealViewportHeight);
+  window.addEventListener('orientationchange', setRealViewportHeight);
 </script>
   <!-- jQuery y Lunaradio -->
   <script src="js/jquery-3.2.1.min.js"></script>
